@@ -101,14 +101,7 @@
       "metadata": {
         "description": "Required. The administrator password of the SQL logical server."
       }
-    },
-    "bingSearchAPIName": {
-      "type": "string",
-      "defaultValue": "[format('bing-search-{0}', uniqueString(resourceGroup().id))]",
-      "metadata": {
-        "description": "Optional. The name of the Bing Search API service"
-      }
-    },
+    },    
     "cosmosDBAccountName": {
       "type": "string",
       "defaultValue": "[format('cosmosdb-account-{0}', uniqueString(resourceGroup().id))]",
@@ -279,17 +272,7 @@
       "dependsOn": [
         "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('cosmosDBAccountName'), parameters('cosmosDBDatabaseName'))]"
       ]
-    },
-    {
-      "type": "Microsoft.Bing/accounts",
-      "apiVersion": "2020-06-10",
-      "name": "[parameters('bingSearchAPIName')]",
-      "kind": "Bing.Search.v7",
-      "location": "global",
-      "sku": {
-        "name": "S1"
-      }
-    },
+    },    
     {
       "type": "Microsoft.CognitiveServices/accounts",
       "apiVersion": "2023-05-01",
